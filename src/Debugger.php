@@ -107,7 +107,7 @@ class Debugger
     protected function updateResponse(Request $request, Response $response)
     {
         if ($this->needToUpdateResponse($response)) {
-            $data = $response->getData(true);
+            $data = $response->getData(true) ?: [];
             $data[$this->responseKey] = $this->storage->getData();
 
             $response->setData($data);
